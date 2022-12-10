@@ -1,0 +1,36 @@
+button {
+  transition: all 150ms ease-in-out;
+}
+button:hover {
+  opacity: 0.5;
+  background: lightgoldenrodyellow;
+  cursor: pointer;
+}
+h1 {
+  font-weight: bold;
+  color: rgb(43, 38, 38);
+}
+h7 {
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+.temperature {
+  font-size: 35px;
+}
+.card-weatherPic {
+  font-size: 30px;
+}
+.weatherApp {
+  border: 1px solid #d7d7d7;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 15px;
+  max-width: 65%;
+}
+
+#currentButton {
+  transition: all 150ms ease-in-out;
+  border-radius: 2.5px;
+}
