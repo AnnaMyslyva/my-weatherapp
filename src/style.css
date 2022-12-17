@@ -19,15 +19,23 @@ a {
 .temperature {
   font-size: 35px;
 }
+#currentTemp {
+  font-size: 35px;
+}
+
 .card-weatherPic {
   font-size: 30px;
 }
+
+.card-header {
+}
+
 .weatherApp {
   border: 1px solid #d7d7d7;
-  padding: 20px;
-  margin: 20px;
+  padding: 25px;
+  margin: 25px;
   border-radius: 15px;
-  max-width: 65%;
+  max-width: 70%;
 }
 
 #currentButton {

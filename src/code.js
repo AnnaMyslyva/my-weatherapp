@@ -20,17 +20,23 @@ currentTime(now);
 
 function getCurrentWeather(response) {
   let temperature = Math.round(response.data.main.temp);
-  let h7 = document.querySelector("h7");
-  h7.innerHTML = `${temperature}ºC`;
+  let currentTemp = document.querySelector("#currentTemp");
   let city = response.data.name;
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${city}`;
   let dispcription = document.querySelector("#discription");
-  dispcription.innerHTML = response.data.weather[0].main;
   let wind = document.querySelector("#wind");
+  let humid = document.querySelector("#humid");
+  let iconElement = document.querySelector("#icon1");
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  humid.innerHTML = response.data.main.humidity + "%";
   wind.innerHTML = response.data.wind.speed + " km/s";
-  let precip = document.querySelector("#precip");
-  precip.innerHTML = response.data.main.humidity + "%";
+  dispcription.innerHTML = response.data.weather[0].main;
+  h1.innerHTML = `${city}`;
+  currentTemp.innerHTML = `${temperature}ºC`;
 }
 function searchCity(city) {
   let apiKey = "c6da6d296757d783639131d01c953a9f";
