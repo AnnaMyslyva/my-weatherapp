@@ -17,9 +17,11 @@ function currentTime(now) {
 currentTime(now);
 
 //Search-Function + 1 Temp-Function
+let celsiusTemp = null;
 
 function getCurrentWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemp = Math.round(response.data.main.temp);
+  let temperature = celsiusTemp;
   let currentTemp = document.querySelector("#currentTemp");
   let city = response.data.name;
   let h1 = document.querySelector("h1");
@@ -38,6 +40,7 @@ function getCurrentWeather(response) {
   h1.innerHTML = `${city}`;
   currentTemp.innerHTML = `${temperature}ºC`;
 }
+
 function searchCity(city) {
   let apiKey = "c6da6d296757d783639131d01c953a9f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -68,3 +71,14 @@ function getCurrentLocation(event) {
 }
 let form1 = document.querySelector("#currentButton");
 form1.addEventListener("click", getCurrentLocation);
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#currentTemp");
+  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+  tempElement.innerHTML = `${fahrenheitTemp} `;
+}
+let fahrenheitLink = document.querySelector("#fahrenheitLink");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+searchCity(Munich);

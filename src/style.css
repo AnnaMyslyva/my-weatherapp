@@ -3,7 +3,7 @@ button {
 }
 button:hover {
   opacity: 0.5;
-  background: lightgoldenrodyellow;
+  background: rgb(194, 194, 194);
   cursor: pointer;
 }
 h1 {
@@ -42,13 +42,32 @@ a {
 
 #currentButton {
   transition: all 150ms ease-in-out;
-  border-radius: 2.5px;
+  border-radius: 3.5px;
+  border-color: #767676;
 }
+
+#currentButton:hover {
+  opacity: 0.5;
+  background: #e5e5e5;
+  cursor: pointer;
+}
+
 #gitHubLink {
   font-size: 20px;
   transition: all 150ms ease-in-out;
   color: rgb(54, 15, 90);
 }
 #gitHubLink:hover {
+  cursor: pointer;
+}
+
+#fahrenheit {
+  font-size: 35px;
+  transition: all 150ms ease-in-out;
+}
+
+#fahrenheit:hover {
+  opacity: 0.5;
+  color: rgb(168, 178, 233);
   cursor: pointer;
 }
