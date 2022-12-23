@@ -43,7 +43,8 @@ a {
 #currentButton {
   transition: all 150ms ease-in-out;
   border-radius: 3.5px;
-  border-color: #767676;
+  border-color: #979595;
+  background-color: #edecec;
 }
 
 #currentButton:hover {

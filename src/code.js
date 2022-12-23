@@ -1,5 +1,6 @@
 //Date + Time
 let now = new Date();
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 function currentTime(now) {
   let hours = now.getHours();
   if (hours < 10) {
@@ -9,12 +10,44 @@ function currentTime(now) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let h5 = document.querySelector("h5");
   h5.innerHTML = `${days[now.getDay()]},  ${hours}:${minutes}`;
   return h5.innerHTML;
 }
 currentTime(now);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+    <div class="col">
+      <div class="container text-center">
+              <div class="card border-success mb-3" style="max-width: 18rem">
+                <div class="card-header bg-transparent border-success">${day}</div>
+                <div class="card-body text-success">
+                  <h5 class="card-title"></h5>
+                  <p class="card-weatherPic">
+                    <img
+                      src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
+                      width="50"
+                      height="50"
+                    />
+                  </p>
+                </div>
+                <div class="card-footer bg-transparent border-success">13º</div>
+              </div>
+            </div>
+          </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 //Search-Function + 1 Temp-Function
 let celsiusTemp = null;
@@ -39,6 +72,8 @@ function getCurrentWeather(response) {
   dispcription.innerHTML = response.data.weather[0].main;
   h1.innerHTML = `${city}`;
   currentTemp.innerHTML = `${temperature}ºC`;
+
+  displayForecast();
 }
 
 function searchCity(city) {
