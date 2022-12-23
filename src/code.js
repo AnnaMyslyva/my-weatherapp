@@ -57,8 +57,7 @@ let celsiusTemp = null;
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKEY = "c6da6d296757d783639131d01c953a9f";
-  let apiURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKEY}&units=metric`;
-
+  let apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKEY}&units=metric`;
   axios.get(apiURL).then(displayForecast);
 }
 
@@ -75,7 +74,7 @@ function getCurrentWeather(response) {
 
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 
   humid.innerHTML = response.data.main.humidity + "%";
