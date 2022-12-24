@@ -62,12 +62,6 @@ a {
   color: rgb(0, 146, 75);
 }
 
-#netifyLink {
-  font-size: 20px;
-  transition: all 150ms ease-in-out;
-  color: rgb(0, 146, 75);
-}
-
 #gitHubLink:hover {
   cursor: pointer;
 }
@@ -81,4 +75,16 @@ a {
   opacity: 0.5;
   color: rgb(168, 178, 233);
   cursor: pointer;
+}
+
+#netifyLink {
+  font-size: 20px;
+  transition: all 150ms ease-in-out;
+  color: rgb(0, 146, 75);
+}
+
+#idLink {
+  font-size: 20px;
+  transition: all 150ms ease-in-out;
+  color: rgb(0, 146, 75);
 }
