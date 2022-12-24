@@ -16,9 +16,11 @@ h7 {
 a {
   text-decoration: none;
 }
+
 .temperature {
   font-size: 35px;
 }
+
 #currentTemp {
   font-size: 35px;
 }
@@ -38,6 +40,7 @@ a {
   margin: 25px;
   border-radius: 15px;
   max-width: 70%;
+  background-color: rgb(241, 251, 246);
 }
 
 #currentButton {

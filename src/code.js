@@ -1,4 +1,5 @@
 //Date + Time
+
 let now = new Date();
 
 function currentTime(now) {
@@ -17,6 +18,8 @@ function currentTime(now) {
 }
 currentTime(now);
 
+//Forecast-Functions
+
 function formatDay(timestemp) {
   let data = new Date(timestemp * 1000);
   let day = data.getDay();
@@ -32,7 +35,6 @@ function displayForecast(response) {
     response.data.list[24],
     response.data.list[32],
   ];
-  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
 
@@ -72,10 +74,10 @@ function displayForecast(response) {
 }
 
 //Search-Function + 1 Temp-Function
+
 let celsiusTemp = null;
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKEY = "c6da6d296757d783639131d01c953a9f";
   let apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKEY}&units=metric`;
   axios.get(apiURL).then(displayForecast);
@@ -139,11 +141,4 @@ function getCurrentLocation(event) {
 let form1 = document.querySelector("#currentButton");
 form1.addEventListener("click", getCurrentLocation);
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#currentTemp");
-  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
-  tempElement.innerHTML = `${fahrenheitTemp} `;
-}
-let fahrenheitLink = document.querySelector("#fahrenheitLink");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
+searchCity("Munich");
