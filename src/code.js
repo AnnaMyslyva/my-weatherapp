@@ -17,30 +17,50 @@ function currentTime(now) {
 }
 currentTime(now);
 
+function formatDay(timestemp) {
+  let data = new Date(timestemp * 1000);
+  let day = data.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = [
+    response.data.list[0],
+    response.data.list[8],
+    response.data.list[16],
+    response.data.list[24],
+    response.data.list[32],
+  ];
+  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
+
+  forecast.forEach(function (day) {
     forecastHTML =
       forecastHTML +
       ` 
     <div class="col-2">
       <div class="container text-center">
               <div class="card border-success mb-3" style="max-width: 18rem">
-                <div class="card-header bg-transparent border-success">${day}</div>
+                <div class="card-header bg-transparent border-success">${formatDay(
+                  day.dt
+                )}</div>
                 <div class="card-body text-success">
                   <h5 class="card-title"></h5>
                   <p class="card-weatherPic">
                     <img
-                      src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png"
+                      src="https://openweathermap.org/img/wn/${
+                        day.weather[0].icon
+                      }@2x.png"
                       width="50"
                       height="50"
                     />
                   </p>
                 </div>
-                <div class="card-footer bg-transparent border-success">13º</div>
+                <div class="card-footer bg-transparent border-success">${Math.round(
+                  day.main.temp
+                )}º</div>
               </div>
             </div>
           </div>
